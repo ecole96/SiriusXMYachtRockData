@@ -114,15 +114,4 @@ def main():
                 if elapsed_timeout > 300: # 5 minutes without reconnect has passed - exit
                     print('Database reconnect has timed out, exiting script.')
                     exit()   
-#main()
-
-def test():
-    base_url = "https://www.siriusxm.com/metadata/pdt/en-us/json/channels/9420/timestamp/"
-    last_update = None
-    while True:
-        if last_update is None or time.time() - last_update >= 60:
-            url = get_url(base_url)
-            artist,song = getInfo(url)
-            last_update = time.time()
-            print(datetime.datetime.utcnow().strftime("%m/%d/%Y, %I:%M:%S %p") + ':',artist,'-',song)
-test()
+main()
